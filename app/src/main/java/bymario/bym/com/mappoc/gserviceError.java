@@ -1,0 +1,30 @@
+package bymario.bym.com.mappoc;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
+
+/**
+ * Created by kinfonglo on 10/19/16.
+ */
+
+public class gserviceError extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.gservice_error);
+
+        Button btnContinue = (Button) findViewById(R.id.btn_continue);
+        btnContinue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent finderIntent = new Intent(gserviceError.this,finder.class);
+                startActivity(finderIntent);
+            }
+        });
+    }
+}
