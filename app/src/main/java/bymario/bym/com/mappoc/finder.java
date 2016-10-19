@@ -5,6 +5,7 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -22,6 +23,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.security.Key;
 import java.util.Iterator;
 import java.util.List;
 
@@ -50,10 +52,12 @@ public class finder extends FragmentActivity implements OnMapReadyCallback {
 
         // SOFT KEYBOARD [ENTER]
         EditText txbLocation = (EditText) findViewById(R.id.txb_location);
+
+        // DETECT KEYPRESS
         txbLocation.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                if (actionId == EditorInfo.IME_ACTION_SEND) {
                     hideKeyboard();
                     getLocation();
                     return true;
@@ -70,9 +74,9 @@ public class finder extends FragmentActivity implements OnMapReadyCallback {
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        LatLng utah = new LatLng(40.6138122,-111.9159724);
+        mMap.addMarker(new MarkerOptions().position(utah).title("Marker in Utah"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(utah,10));
     }
 
     /*****
@@ -93,7 +97,7 @@ public class finder extends FragmentActivity implements OnMapReadyCallback {
 
     // MAP SERVICES
     public void animateMapLocation(LatLng latlng) {
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latlng, 10));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latlng, 13));
     }
 
     // LOCATION SERVICES
@@ -120,10 +124,6 @@ public class finder extends FragmentActivity implements OnMapReadyCallback {
             makeToast(ex.getMessage().toString());
         }
 
-
-    }
-
-    public void getCurrentLocation() {
 
     }
 
