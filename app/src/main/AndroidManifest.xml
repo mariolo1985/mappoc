@@ -29,14 +29,22 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".finder"
+            android:name=".landing_main"
             android:label="@string/title_activity_finder">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!-- FINDER / MAP -->
+        <activity android:name=".finder"
+            android:label="Landing Main"/>
+
+        <!-- G SERVICE ERR -->
+        <activity android:name=".gserviceError"
+            android:label="Google Play Error"/>
+
+
     </application>
 
 </manifest>
