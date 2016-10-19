@@ -76,7 +76,7 @@ public class finder extends FragmentActivity implements OnMapReadyCallback {
         // Add a marker in Sydney and move the camera
         LatLng utah = new LatLng(40.6138122,-111.9159724);
         mMap.addMarker(new MarkerOptions().position(utah).title("Marker in Utah"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(utah,10));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(utah, 9));
     }
 
     /*****
